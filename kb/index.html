@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Django Forms</title>
+    <style>
+        field{
+            border:1px solid #ccc;
+            border-radius:5px;
+            height:25px;
+            width:200px;
+            margin: 10px 10px 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <form method="POST">
+        {% csrf_token %}
+        <div>
+        {% for field in form %}
+        <div class="row">
+            {{field.label_tag}}
+            <div class="col-md-10">{{field}}</div>
+        </div>
+        {% endfor %}
+        </div>
+        <label>
+            <input type="radio" value="Sofia" name="my" >Хочу перевести гроші іншій людині <br>
+            <input type="radio" value="Verona" name="my">Хочу оплатити комунальні послуги
+        </label>
+        <input type="submit" value="Send" >
+
+    </form>
+</body>
+</html>
